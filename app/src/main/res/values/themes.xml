@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Theme chính — Material 3 -->
+    <style name="Theme.PizzaApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/red_primary</item>
+        <item name="colorPrimaryContainer">@color/md_theme_primary_container</item>
+        <item name="colorOnPrimary">@color/text_on_primary</item>
+        <item name="colorSecondary">@color/yellow_accent</item>
+        <item name="colorOnSecondary">@color/text_primary</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="android:colorBackground">@color/background</item>
+        <item name="colorError">@color/md_theme_error</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <!-- Splash screen theme — không ActionBar, không animation mặc định -->
+    <style name="Theme.PizzaApp.Splash" parent="Theme.PizzaApp">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <!-- AppBar / Toolbar -->
+    <style name="Widget.PizzaApp.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="android:background">@color/surface</item>
+        <item name="titleTextColor">@color/text_primary</item>
+    </style>
+
+    <!-- Bottom Navigation -->
+    <style name="Widget.PizzaApp.BottomNavigation" parent="Widget.Material3.BottomNavigationView">
+        <item name="itemIconTint">@color/bottom_nav_color</item>
+        <item name="itemTextColor">@color/bottom_nav_color</item>
+        <item name="backgroundTint">@color/surface</item>
+    </style>
+
+    <!-- Button chính -->
+    <style name="Widget.PizzaApp.Button" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/red_primary</item>
+        <item name="android:textColor">@color/text_on_primary</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="android:paddingTop">14dp</item>
+        <item name="android:paddingBottom">14dp</item>
+    </style>
+
+    <!-- Button outline -->
+    <style name="Widget.PizzaApp.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="strokeColor">@color/red_primary</item>
+        <item name="android:textColor">@color/red_primary</item>
+        <item name="cornerRadius">12dp</item>
+    </style>
+
+    <!-- Card -->
+    <style name="Widget.PizzaApp.Card" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">2dp</item>
+        <item name="contentPaddingBottom">0dp</item>
+    </style>
+
+    <!-- TextInputLayout -->
+    <style name="Widget.PizzaApp.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/text_input_stroke_color</item>
+        <item name="hintTextColor">@color/text_secondary</item>
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+    </style>
+
+    <!-- Chip chọn size/crust/topping -->
+    <style name="Widget.PizzaApp.Chip" parent="Widget.Material3.Chip.Filter">
+        <item name="chipBackgroundColor">@color/chip_background_color</item>
+        <item name="chipStrokeColor">@color/chip_stroke_color</item>
+        <item name="checkedIconVisible">true</item>
+    </style>
+
+    <!-- Aliases để layout có thể dùng .Primary / .TextInput -->
+    <style name="Widget.PizzaApp.Button.Primary" parent="Widget.PizzaApp.Button" />
+    <style name="Widget.PizzaApp.TextInput" parent="Widget.PizzaApp.TextInputLayout" />
+
+    <!-- Style hỗ trợ cho item profile -->
+    <style name="ProfileMenuItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/spacing_md</item>
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:drawablePadding">@dimen/spacing_md</item>
+        <item name="android:drawableTint">@color/text_secondary</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:layout_marginVertical">2dp</item>
+    </style>
+
+    <!-- Shape cho avatar tròn -->
+    <style name="CircleImage">
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <!-- Style cho bảng tóm tắt giá -->
+    <style name="SummaryRow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_marginVertical">2dp</item>
+    </style>
+
+    <style name="SummaryLabel">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <style name="SummaryValue">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <!-- Timeline trên màn theo dõi đơn -->
+    <style name="TimelineRow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_marginVertical">@dimen/spacing_xs</item>
+    </style>
+
+    <style name="TimelineDot">
+        <item name="android:layout_width">12dp</item>
+        <item name="android:layout_height">12dp</item>
+        <item name="android:background">@drawable/bg_timeline_dot</item>
+    </style>
+
+    <style name="TimelineText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/spacing_sm</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+</resources>

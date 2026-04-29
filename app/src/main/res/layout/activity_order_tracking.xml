@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/surface"
+        app:title="@string/title_tracking"
+        app:navigationIcon="@drawable/ic_back"
+        app:titleTextColor="@color/text_primary" />
+
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="240dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_md">
+
+            <TextView
+                android:id="@+id/tvOrderId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="@dimen/text_h3"
+                android:textColor="@color/text_primary" />
+
+            <TextView
+                android:id="@+id/tvOrderTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_secondary" />
+
+            <!-- Status timeline -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/spacing_md">
+
+                <LinearLayout style="@style/TimelineRow">
+                    <View android:id="@+id/dot1" style="@style/TimelineDot" />
+                    <TextView android:id="@+id/tvStatus1" style="@style/TimelineText" android:text="@string/status_pending" />
+                </LinearLayout>
+                <LinearLayout style="@style/TimelineRow">
+                    <View android:id="@+id/dot2" style="@style/TimelineDot" />
+                    <TextView android:id="@+id/tvStatus2" style="@style/TimelineText" android:text="@string/status_confirmed" />
+                </LinearLayout>
+                <LinearLayout style="@style/TimelineRow">
+                    <View android:id="@+id/dot3" style="@style/TimelineDot" />
+                    <TextView android:id="@+id/tvStatus3" style="@style/TimelineText" android:text="@string/status_preparing" />
+                </LinearLayout>
+                <LinearLayout style="@style/TimelineRow">
+                    <View android:id="@+id/dot4" style="@style/TimelineDot" />
+                    <TextView android:id="@+id/tvStatus4" style="@style/TimelineText" android:text="@string/status_delivering" />
+                </LinearLayout>
+                <LinearLayout style="@style/TimelineRow">
+                    <View android:id="@+id/dot5" style="@style/TimelineDot" />
+                    <TextView android:id="@+id/tvStatus5" style="@style/TimelineText" android:text="@string/status_completed" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Shipper info -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardShipper"
+                style="@style/Widget.PizzaApp.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/spacing_md"
+                    android:gravity="center_vertical">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/ivShipper"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_avatar_default"
+                        app:shapeAppearanceOverlay="@style/CircleImage"
+                        android:contentDescription="@string/shipper_avatar" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/spacing_sm"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvShipperName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary" />
+
+                        <TextView
+                            android:id="@+id/tvShipperPhone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_secondary" />
+                    </LinearLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnCallShipper"
+                        style="@style/Widget.Material3.Button.IconButton.Filled"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        app:icon="@drawable/ic_call" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnChatShipper"
+                        style="@style/Widget.Material3.Button.IconButton.Filled"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:layout_marginStart="@dimen/spacing_xs"
+                        app:icon="@drawable/ic_chat" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCancelOrder"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:text="@string/btn_cancel_order"
+                android:textColor="@color/red_primary"
+                app:strokeColor="@color/red_primary" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

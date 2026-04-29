@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pizza App</string>
+
+    <!-- Auth -->
+    <string name="login">Đăng nhập</string>
+    <string name="register">Đăng ký</string>
+    <string name="logout">Đăng xuất</string>
+    <string name="forgot_password">Quên mật khẩu?</string>
+    <string name="email">Email</string>
+    <string name="password">Mật khẩu</string>
+    <string name="confirm_password">Xác nhận mật khẩu</string>
+    <string name="full_name">Họ và tên</string>
+    <string name="phone_number">Số điện thoại</string>
+    <string name="remember_me">Ghi nhớ đăng nhập</string>
+    <string name="sign_in_google">Đăng nhập bằng Google</string>
+    <string name="sign_in_phone">Đăng nhập bằng SĐT</string>
+    <string name="send_otp">Gửi mã OTP</string>
+    <string name="verify_otp">Xác nhận OTP</string>
+    <string name="resend_otp">Gửi lại OTP</string>
+    <string name="no_account">Chưa có tài khoản? </string>
+    <string name="have_account">Đã có tài khoản? </string>
+    <string name="send_reset_link">Gửi link đặt lại mật khẩu</string>
+
+    <string name="register_title">Tạo tài khoản</string>
+    <string name="register_subtitle">Tham gia ngay hôm nay</string>
+    <string name="forgot_password_title">Quên mật khẩu</string>
+    <string name="forgot_password_subtitle">Nhập email của bạn để nhận liên kết đặt lại mật khẩu</string>
+    <string name="phone_auth_title">Đăng nhập bằng SĐT</string>
+    <string name="phone_step1_title">Nhập số điện thoại</string>
+    <string name="phone_step1_subtitle">Chúng tôi sẽ gửi mã OTP qua SMS</string>
+    <string name="phone_step2_title">Xác minh OTP</string>
+
+    <string name="hint_name">Họ và tên</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_phone">Số điện thoại</string>
+    <string name="hint_password">Mật khẩu</string>
+    <string name="hint_confirm_password">Xác nhận mật khẩu</string>
+    <string name="hint_current_password">Mật khẩu hiện tại</string>
+    <string name="hint_new_password">Mật khẩu mới</string>
+    <string name="hint_otp">Nhập mã OTP 6 chữ số</string>
+    <string name="hint_voucher_code">Mã giảm giá</string>
+    <string name="hint_note">Ghi chú (tuỳ chọn)</string>
+    <string name="hint_message">Nhập tin nhắn…</string>
+    <string name="hint_search">Tìm pizza, đồ uống…</string>
+    <string name="hint_label">Tên gợi nhớ (Nhà, Cơ quan…)</string>
+    <string name="hint_voucher_value">Giá trị</string>
+    <string name="hint_min_order">Đơn tối thiểu</string>
+    <string name="hint_max_discount">Giảm tối đa</string>
+    <string name="hint_usage_limit">Giới hạn lượt dùng</string>
+    <string name="hint_product_name">Tên sản phẩm</string>
+    <string name="hint_description">Mô tả</string>
+    <string name="hint_base_price">Giá cơ bản</string>
+    <string name="hint_category_id">Danh mục (id)</string>
+
+    <string name="btn_register">Đăng ký</string>
+    <string name="btn_login">Đăng nhập</string>
+    <string name="btn_send_reset">Gửi liên kết</string>
+    <string name="btn_send_otp">Gửi mã OTP</string>
+    <string name="btn_verify">Xác minh</string>
+    <string name="btn_save">Lưu</string>
+    <string name="btn_apply">Áp dụng</string>
+    <string name="btn_change">Thay đổi</string>
+    <string name="btn_delete">Xoá</string>
+    <string name="btn_set_default">Đặt mặc định</string>
+    <string name="btn_add_to_cart">Thêm vào giỏ</string>
+    <string name="btn_explore_menu">Xem thực đơn</string>
+    <string name="btn_checkout">Thanh toán</string>
+    <string name="btn_place_order">Đặt hàng</string>
+    <string name="btn_view_order">Xem đơn hàng</string>
+    <string name="btn_home">Về trang chủ</string>
+    <string name="btn_cancel_order">Huỷ đơn</string>
+    <string name="btn_confirm_address">Xác nhận địa chỉ</string>
+    <string name="btn_update">Cập nhật</string>
+    <string name="btn_assign_shipper">Phân công shipper</string>
+    <string name="btn_pick_image">Chọn ảnh</string>
+    <string name="btn_pick_on_map">Chọn trên bản đồ</string>
+    <string name="btn_add_address">Thêm địa chỉ</string>
+    <string name="btn_add_product">Thêm sản phẩm</string>
+    <string name="btn_add_voucher">Thêm voucher</string>
+
+    <string name="already_have_account">Đã có tài khoản?</string>
+
+    <!-- Home -->
+    <string name="search_hint">Tìm kiếm pizza, đồ uống…</string>
+    <string name="featured">Nổi bật</string>
+    <string name="new_products">Mới ra mắt</string>
+    <string name="best_sellers">Bán chạy</string>
+    <string name="see_all">Xem tất cả</string>
+
+    <!-- Product -->
+    <string name="add_to_cart">Thêm vào giỏ</string>
+    <string name="choose_size">Chọn kích cỡ</string>
+    <string name="choose_crust">Chọn đế bánh</string>
+    <string name="add_toppings">Topping thêm</string>
+    <string name="ingredients">Nguyên liệu</string>
+    <string name="allergens">Dị ứng</string>
+    <string name="reviews">Đánh giá</string>
+    <string name="no_reviews">Chưa có đánh giá nào</string>
+    <string name="product_image">Hình sản phẩm</string>
+    <string name="label_size">Kích cỡ</string>
+    <string name="label_crust">Đế bánh</string>
+    <string name="label_toppings">Topping</string>
+    <string name="label_quantity">Số lượng</string>
+    <string name="label_reviews">Đánh giá</string>
+    <string name="label_address">Địa chỉ</string>
+    <string name="label_delivery_address">Địa chỉ giao hàng</string>
+    <string name="label_items">Món đã chọn</string>
+    <string name="label_voucher">Voucher</string>
+    <string name="label_payment">Phương thức thanh toán</string>
+    <string name="label_default">Mặc định</string>
+    <string name="label_available">Đang bán</string>
+    <string name="cb_set_default">Đặt làm địa chỉ mặc định</string>
+
+    <!-- Cart -->
+    <string name="cart">Giỏ hàng</string>
+    <string name="cart_empty">Giỏ hàng trống</string>
+    <string name="cart_empty_desc">Thêm sản phẩm vào giỏ để bắt đầu đặt hàng</string>
+    <string name="subtotal">Tạm tính</string>
+    <string name="shipping_fee">Phí vận chuyển</string>
+    <string name="discount">Giảm giá</string>
+    <string name="total">Tổng cộng</string>
+    <string name="total_label">Tổng (tạm tính)</string>
+    <string name="apply_voucher">Áp dụng</string>
+    <string name="voucher_code_hint">Nhập mã giảm giá</string>
+    <string name="checkout">Đặt hàng</string>
+
+    <string name="summary_subtotal">Tạm tính</string>
+    <string name="summary_shipping">Phí vận chuyển</string>
+    <string name="summary_discount">Giảm giá</string>
+    <string name="summary_total">Tổng cộng</string>
+
+    <!-- Checkout -->
+    <string name="delivery_address">Địa chỉ giao hàng</string>
+    <string name="pick_on_map">Chọn trên bản đồ</string>
+    <string name="payment_method">Phương thức thanh toán</string>
+    <string name="cash_on_delivery">Tiền mặt (COD)</string>
+    <string name="order_note_hint">Ghi chú cho tài xế (tuỳ chọn)…</string>
+    <string name="place_order">Đặt hàng</string>
+    <string name="payment_cod">Tiền mặt khi nhận hàng (COD)</string>
+    <string name="payment_momo">Ví MoMo</string>
+    <string name="payment_vnpay">VNPay</string>
+    <string name="payment_zalopay">ZaloPay</string>
+
+    <!-- Order -->
+    <string name="orders">Đơn hàng</string>
+    <string name="order_tracking">Theo dõi đơn</string>
+    <string name="no_orders">Chưa có đơn hàng nào</string>
+    <string name="orders_empty">Chưa có đơn hàng nào</string>
+    <string name="cancel_order">Huỷ đơn</string>
+    <string name="call_shipper">Gọi tài xế</string>
+    <string name="estimated_time">Thời gian dự kiến</string>
+    <string name="status_pending">Chờ xác nhận</string>
+    <string name="status_confirmed">Đã xác nhận</string>
+    <string name="status_preparing">Đang chuẩn bị</string>
+    <string name="status_delivering">Đang giao</string>
+    <string name="status_completed">Hoàn thành</string>
+    <string name="orders_pending">Đơn chờ xử lý</string>
+    <string name="orders_completed">Đơn hoàn thành</string>
+
+    <!-- Profile -->
+    <string name="profile">Hồ sơ</string>
+    <string name="edit_profile">Chỉnh sửa thông tin</string>
+    <string name="my_addresses">Sổ địa chỉ</string>
+    <string name="change_password">Đổi mật khẩu</string>
+    <string name="delete_account">Xóa tài khoản</string>
+    <string name="chat_with_store">Chat với cửa hàng</string>
+    <string name="wishlist">Yêu thích</string>
+    <string name="profile_edit">Chỉnh sửa thông tin</string>
+    <string name="profile_addresses">Sổ địa chỉ</string>
+    <string name="profile_change_password">Đổi mật khẩu</string>
+    <string name="profile_notifications">Thông báo</string>
+    <string name="profile_dark_mode">Chế độ tối</string>
+    <string name="profile_language">Ngôn ngữ</string>
+    <string name="profile_about">Giới thiệu</string>
+    <string name="profile_logout">Đăng xuất</string>
+    <string name="profile_delete_account">Xoá tài khoản</string>
+    <string name="profile_avatar">Ảnh đại diện</string>
+    <string name="shipper_avatar">Ảnh tài xế</string>
+    <string name="addresses_empty">Chưa có địa chỉ nào</string>
+
+    <!-- Title -->
+    <string name="title_menu">Thực đơn</string>
+    <string name="title_cart">Giỏ hàng</string>
+    <string name="title_orders">Đơn hàng của tôi</string>
+    <string name="title_checkout">Thanh toán</string>
+    <string name="title_tracking">Theo dõi đơn</string>
+    <string name="title_chat">Trò chuyện</string>
+    <string name="title_pick_address">Chọn địa chỉ</string>
+    <string name="title_addresses">Sổ địa chỉ</string>
+
+    <string name="map_tap_to_pick">Chạm vào bản đồ để chọn vị trí</string>
+    <string name="chat_image">Ảnh trong cuộc trò chuyện</string>
+
+    <!-- Voucher -->
+    <string name="voucher_type_amount">Số tiền</string>
+    <string name="voucher_type_percent">Phần trăm</string>
+
+    <!-- Admin -->
+    <string name="dashboard">Tổng quan</string>
+    <string name="admin_dashboard">Bảng điều khiển</string>
+    <string name="admin_orders">Đơn hàng</string>
+    <string name="admin_products">Sản phẩm</string>
+    <string name="admin_users">Người dùng</string>
+    <string name="admin_vouchers">Voucher</string>
+    <string name="admin_order_detail">Chi tiết đơn hàng</string>
+    <string name="admin_product_edit">Chỉnh sửa sản phẩm</string>
+    <string name="admin_update_status">Cập nhật trạng thái</string>
+    <string name="manage_products">Quản lý sản phẩm</string>
+    <string name="manage_orders">Quản lý đơn hàng</string>
+    <string name="manage_users">Quản lý người dùng</string>
+    <string name="manage_vouchers">Voucher</string>
+    <string name="revenue_today">Hôm nay</string>
+    <string name="revenue_week">Tuần này</string>
+    <string name="revenue_month">Tháng này</string>
+    <string name="revenue_chart">Biểu đồ doanh thu</string>
+    <string name="add_product">Thêm sản phẩm</string>
+    <string name="update_status">Cập nhật trạng thái</string>
+
+    <!-- Common -->
+    <string name="loading">Đang tải…</string>
+    <string name="error_network">Không có kết nối mạng</string>
+    <string name="save">Lưu</string>
+    <string name="cancel">Huỷ</string>
+    <string name="delete">Xóa</string>
+    <string name="confirm">Xác nhận</string>
+    <string name="close">Đóng</string>
+    <string name="retry">Thử lại</string>
+    <string name="send">Gửi</string>
+    <string name="type_message">Nhập tin nhắn…</string>
+
+    <!-- Google Sign-In Web Client ID — thay bằng ID thực từ google-services.json -->
+    <string name="default_web_client_id">YOUR_WEB_CLIENT_ID.apps.googleusercontent.com</string>
+</resources>
