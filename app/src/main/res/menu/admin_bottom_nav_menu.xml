@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/admin_nav_dashboard"
+        android:icon="@drawable/ic_dashboard"
+        android:title="@string/dashboard" />
+    <item
+        android:id="@+id/admin_nav_products"
+        android:icon="@drawable/ic_pizza"
+        android:title="Sản phẩm" />
+    <item
+        android:id="@+id/admin_nav_orders"
+        android:icon="@drawable/ic_orders"
+        android:title="@string/orders" />
+    <item
+        android:id="@+id/admin_nav_users"
+        android:icon="@drawable/ic_users"
+        android:title="Users" />
+    <item
+        android:id="@+id/admin_nav_vouchers"
+        android:icon="@drawable/ic_voucher"
+        android:title="Voucher" />
+</menu>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Color state lists dùng trong selector -->
+    <attr name="colorPrimary" format="color" />
+    <attr name="colorSurface" format="color" />
+</resources>

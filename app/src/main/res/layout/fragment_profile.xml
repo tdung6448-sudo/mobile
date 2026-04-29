@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="@dimen/spacing_lg"
+            android:background="@color/red_primary">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivAvatar"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_avatar_default"
+                app:shapeAppearanceOverlay="@style/CircleImage"
+                android:contentDescription="@string/profile_avatar" />
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_sm"
+                android:textColor="@color/text_on_primary"
+                android:textSize="@dimen/text_h3"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_on_primary"
+                android:alpha="0.85" />
+        </LinearLayout>
+
+        <!-- Items -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_md">
+
+            <TextView
+                android:id="@+id/itemEditProfile"
+                style="@style/ProfileMenuItem"
+                android:text="@string/profile_edit"
+                android:drawableStart="@drawable/ic_edit" />
+
+            <TextView
+                android:id="@+id/itemAddresses"
+                style="@style/ProfileMenuItem"
+                android:text="@string/profile_addresses"
+                android:drawableStart="@drawable/ic_location" />
+
+            <TextView
+                android:id="@+id/itemChangePassword"
+                style="@style/ProfileMenuItem"
+                android:text="@string/profile_change_password"
+                android:drawableStart="@drawable/ic_lock" />
+
+            <TextView
+                android:id="@+id/itemNotifications"
+                style="@style/ProfileMenuItem"
+                android:text="@string/profile_notifications"
+                android:drawableStart="@drawable/ic_notification" />
+
+            <TextView
+                android:id="@+id/itemDarkMode"
+                style="@style/ProfileMenuItem"
+                android:text="@string/profile_dark_mode"
+                android:drawableStart="@drawable/ic_dark_mode" />
+
+            <TextView
+                android:id="@+id/itemLanguage"
+                style="@style/ProfileMenuItem"
+                android:text="@string/profile_language"
+                android:drawableStart="@drawable/ic_language" />
+
+            <TextView
+                android:id="@+id/itemAbout"
+                style="@style/ProfileMenuItem"
+                android:text="@string/profile_about"
+                android:drawableStart="@drawable/ic_info" />
+
+            <TextView
+                android:id="@+id/itemLogout"
+                style="@style/ProfileMenuItem"
+                android:text="@string/profile_logout"
+                android:textColor="@color/red_primary"
+                android:drawableStart="@drawable/ic_logout" />
+
+            <TextView
+                android:id="@+id/itemDeleteAccount"
+                style="@style/ProfileMenuItem"
+                android:text="@string/profile_delete_account"
+                android:textColor="@color/red_primary"
+                android:drawableStart="@drawable/ic_delete" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

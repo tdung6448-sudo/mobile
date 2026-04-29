@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- Không backup file chứa thông tin nhạy cảm -->
+    <exclude domain="sharedpref" path="user_prefs.xml" />
+    <exclude domain="database" path="." />
+</full-backup-content>

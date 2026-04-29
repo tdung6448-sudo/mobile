@@ -1,0 +1,229 @@
+import java.util.Properties
+
+// Đọc local.properties để lấy API keys (không hardcode trong code)
+def localProps = new Properties()
+def localPropsFile = rootProject.file('local.properties')
+if (localPropsFile.exists()) {
+    localPropsFile.withInputStream { localProps.load(it) }
+}
+
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
+    id 'com.google.firebase.firebase-perf'
+}
+
+android {
+    namespace 'com.pizza.app'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.pizza.app"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // Đưa API keys vào BuildConfig — đọc từ local.properties
+        buildConfigField "String", "MAPS_API_KEY",
+                "\"${localProps.getProperty('MAPS_API_KEY', '')}\""
+        buildConfigField "String", "MOMO_PARTNER_CODE",
+                "\"${localProps.getProperty('MOMO_PARTNER_CODE', '')}\""
+        buildConfigField "String", "MOMO_ACCESS_KEY",
+                "\"${localProps.getProperty('MOMO_ACCESS_KEY', '')}\""
+        buildConfigField "String", "MOMO_SECRET_KEY",
+                "\"${localProps.getProperty('MOMO_SECRET_KEY', '')}\""
+        buildConfigField "String", "VNPAY_TMN_CODE",
+                "\"${localProps.getProperty('VNPAY_TMN_CODE', '')}\""
+        buildConfigField "String", "VNPAY_HASH_SECRET",
+                "\"${localProps.getProperty('VNPAY_HASH_SECRET', '')}\""
+        buildConfigField "String", "ZALOPAY_APP_ID",
+                "\"${localProps.getProperty('ZALOPAY_APP_ID', '')}\""
+        buildConfigField "String", "ZALOPAY_KEY1",
+                "\"${localProps.getProperty('ZALOPAY_KEY1', '')}\""
+        buildConfigField "String", "ZALOPAY_KEY2",
+                "\"${localProps.getProperty('ZALOPAY_KEY2', '')}\""
+        buildConfigField "String", "STRIPE_PUBLISHABLE_KEY",
+                "\"${localProps.getProperty('STRIPE_PUBLISHABLE_KEY', '')}\""
+
+        // Khai báo Maps API key trong Manifest
+        manifestPlaceholders = [
+                mapsApiKey: localProps.getProperty('MAPS_API_KEY', '')
+        ]
+
+        // Hỗ trợ vector drawable trên API < 21
+        vectorDrawables.useSupportLibrary = true
+
+        // MultiDex — cần thiết khi method count > 65k
+        multiDexEnabled true
+    }
+
+    // Cấu hình ký app cho bản release
+    signingConfigs {
+        release {
+            // Đọc keystore từ local.properties — KHÔNG hardcode
+            storeFile     file(localProps.getProperty('KEYSTORE_PATH', 'pizza.jks'))
+            storePassword localProps.getProperty('KEYSTORE_PASSWORD', '')
+            keyAlias      localProps.getProperty('KEY_ALIAS', '')
+            keyPassword   localProps.getProperty('KEY_PASSWORD', '')
+        }
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug"
+            debuggable true
+            // Tắt R8 khi debug để build nhanh hơn
+            minifyEnabled false
+            shrinkResources false
+        }
+        release {
+            minifyEnabled true       // Bật R8 để tối ưu kích thước
+            shrinkResources true     // Xóa resource không dùng
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
+                          'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        // Hỗ trợ Java 8+ API trên Android API < 26 (desugaring)
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildFeatures {
+        viewBinding true   // Dùng ViewBinding thay vì findViewById
+        buildConfig true
+    }
+
+    // Tách APK theo ABI để giảm kích thước (chỉ dùng khi upload split APKs, không dùng cho AAB)
+    splits {
+        abi {
+            enable false  // Bật khi cần, tắt khi dùng App Bundle (.aab)
+        }
+    }
+
+    // Cấu hình lint
+    lint {
+        abortOnError false
+        checkReleaseBuilds true
+        disable 'MissingTranslation', 'ExtraTranslation'
+    }
+
+    packaging {
+        resources {
+            excludes += ['/META-INF/{AL2.0,LGPL2.1}', 'META-INF/NOTICE.md', 'META-INF/LICENSE.md']
+        }
+    }
+}
+
+dependencies {
+    // ── Core AndroidX ──────────────────────────────────────────────
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.core:core-ktx:1.13.1'  // KTX extensions (dùng trong Gradle, không phải app code)
+    implementation 'androidx.core:core:1.13.1'
+    implementation 'androidx.activity:activity:1.9.0'
+    implementation 'androidx.fragment:fragment:1.8.1'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    coreLibraryDesugaring 'com.android.tools.desugar_jdk_libs:desugar_jdk_libs:2.0.4'
+
+    // ── Material Design 3 ──────────────────────────────────────────
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
+    // ── Navigation Component ──────────────────────────────────────
+    implementation 'androidx.navigation:navigation-fragment:2.7.7'
+    implementation 'androidx.navigation:navigation-ui:2.7.7'
+
+    // ── ViewModel + LiveData (MVVM) ───────────────────────────────
+    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.8.2'
+    implementation 'androidx.lifecycle:lifecycle-livedata:2.8.2'
+    implementation 'androidx.lifecycle:lifecycle-runtime:2.8.2'
+    implementation 'androidx.lifecycle:lifecycle-common-java8:2.8.2'
+
+    // ── RecyclerView & ViewPager2 ─────────────────────────────────
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
+    implementation 'androidx.viewpager2:viewpager2:1.1.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+    // ── Firebase BOM — quản lý version tập trung ──────────────────
+    implementation platform('com.google.firebase:firebase-bom:33.1.0')
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-firestore'
+    implementation 'com.google.firebase:firebase-database'
+    implementation 'com.google.firebase:firebase-storage'
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-crashlytics'
+    implementation 'com.google.firebase:firebase-perf'
+    implementation 'com.google.firebase:firebase-config'  // Remote Config
+
+    // Google Sign-In
+    implementation 'com.google.android.gms:play-services-auth:21.2.0'
+
+    // ── Google Maps & Places ──────────────────────────────────────
+    implementation 'com.google.android.gms:play-services-maps:19.0.0'
+    implementation 'com.google.android.gms:play-services-location:21.3.0'
+    implementation 'com.google.android.libraries.places:places:3.5.0'
+
+    // ── Glide — load & cache ảnh ──────────────────────────────────
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.16.0'
+
+    // ── Retrofit + OkHttp — gọi API thanh toán ───────────────────
+    implementation 'com.squareup.retrofit2:retrofit:2.11.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.11.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.12.0'
+    implementation 'com.google.code.gson:gson:2.11.0'
+
+    // ── Lottie Animation ──────────────────────────────────────────
+    implementation 'com.airbnb.android:lottie:6.4.0'
+
+    // ── Shimmer (skeleton loading) ────────────────────────────────
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+
+    // ── MPAndroidChart — biểu đồ admin dashboard ─────────────────
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    // ── CircleImageView — avatar tròn ─────────────────────────────
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    // ── Dots Indicator cho ViewPager2 ─────────────────────────────
+    implementation 'com.tbuonomo:dotsindicator:5.0'
+
+    // ── Chip & FlexboxLayout — chọn topping ──────────────────────
+    implementation 'com.google.android.flexbox:flexbox:3.0.0'
+
+    // ── Stripe SDK (tuỳ chọn — thẻ quốc tế) ─────────────────────
+    implementation 'com.stripe:stripe-android:20.46.0'
+
+    // ── Image Picker ──────────────────────────────────────────────
+    implementation 'com.github.dhaval2404:imagepicker:2.1'
+
+    // ── Paging 3 — phân trang Firestore ──────────────────────────
+    implementation 'androidx.paging:paging-runtime:3.3.0'
+
+    // ── WorkManager — background sync ────────────────────────────
+    implementation 'androidx.work:work-runtime:2.9.0'
+
+    // ── Preference (Settings screen) ─────────────────────────────
+    implementation 'androidx.preference:preference:1.2.1'
+
+    // ── Testing ───────────────────────────────────────────────────
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.mockito:mockito-core:5.12.0'
+    testImplementation 'androidx.arch.core:core-testing:2.2.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.6.1'
+    androidTestImplementation 'androidx.test:runner:1.6.1'
+    androidTestImplementation 'androidx.test:rules:1.6.1'
+}

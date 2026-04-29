@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Màu chủ đạo -->
+    <color name="red_primary">#E31837</color>
+    <color name="red_dark">#B01229</color>
+    <color name="red_light">#FF6B6B</color>
+    <color name="yellow_accent">#FDBC2C</color>
+    <color name="yellow_light">#FFE082</color>
+
+    <!-- Nền -->
+    <color name="background">#FAFAFA</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_variant">#F5F5F5</color>
+
+    <!-- Text -->
+    <color name="text_primary">#1A1A1A</color>
+    <color name="text_secondary">#757575</color>
+    <color name="text_hint">#BDBDBD</color>
+    <color name="text_on_primary">#FFFFFF</color>
+
+    <!-- Trạng thái -->
+    <color name="green">#4CAF50</color>
+    <color name="blue">#2196F3</color>
+    <color name="orange">#FF9800</color>
+    <color name="grey">#9E9E9E</color>
+
+    <!-- Divider / Border -->
+    <color name="divider">#E0E0E0</color>
+    <color name="stroke">#EEEEEE</color>
+
+    <!-- Dark mode -->
+    <color name="background_dark">#121212</color>
+    <color name="surface_dark">#1E1E1E</color>
+    <color name="text_primary_dark">#FFFFFF</color>
+    <color name="text_secondary_dark">#BDBDBD</color>
+
+    <!-- Material 3 seed colors -->
+    <color name="md_theme_primary">#E31837</color>
+    <color name="md_theme_on_primary">#FFFFFF</color>
+    <color name="md_theme_primary_container">#FFD9DC</color>
+    <color name="md_theme_secondary">#FDBC2C</color>
+    <color name="md_theme_background">#FAFAFA</color>
+    <color name="md_theme_surface">#FFFFFF</color>
+    <color name="md_theme_error">#B3261E</color>
+</resources>
