@@ -1,3 +1,10 @@
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
+    id 'com.google.firebase.firebase-perf'
+}
+
 import java.util.Properties
 
 // Đọc local.properties để lấy API keys (không hardcode trong code)
@@ -5,13 +12,6 @@ def localProps = new Properties()
 def localPropsFile = rootProject.file('local.properties')
 if (localPropsFile.exists()) {
     localPropsFile.withInputStream { localProps.load(it) }
-}
-
-plugins {
-    id 'com.android.application'
-    id 'com.google.gms.google-services'
-    id 'com.google.firebase.crashlytics'
-    id 'com.google.firebase.firebase-perf'
 }
 
 android {
@@ -64,7 +64,6 @@ android {
     // Cấu hình ký app cho bản release
     signingConfigs {
         release {
-            // Đọc keystore từ local.properties — KHÔNG hardcode
             storeFile     file(localProps.getProperty('KEYSTORE_PATH', 'pizza.jks'))
             storePassword localProps.getProperty('KEYSTORE_PASSWORD', '')
             keyAlias      localProps.getProperty('KEY_ALIAS', '')
@@ -77,13 +76,12 @@ android {
             applicationIdSuffix ".debug"
             versionNameSuffix "-debug"
             debuggable true
-            // Tắt R8 khi debug để build nhanh hơn
             minifyEnabled false
             shrinkResources false
         }
         release {
-            minifyEnabled true       // Bật R8 để tối ưu kích thước
-            shrinkResources true     // Xóa resource không dùng
+            minifyEnabled true
+            shrinkResources true
             signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
                           'proguard-rules.pro'
@@ -91,25 +89,22 @@ android {
     }
 
     compileOptions {
-        // Hỗ trợ Java 8+ API trên Android API < 26 (desugaring)
         coreLibraryDesugaringEnabled true
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
 
     buildFeatures {
-        viewBinding true   // Dùng ViewBinding thay vì findViewById
+        viewBinding true
         buildConfig true
     }
 
-    // Tách APK theo ABI để giảm kích thước (chỉ dùng khi upload split APKs, không dùng cho AAB)
     splits {
         abi {
-            enable false  // Bật khi cần, tắt khi dùng App Bundle (.aab)
+            enable false
         }
     }
 
-    // Cấu hình lint
     lint {
         abortOnError false
         checkReleaseBuilds true
@@ -126,7 +121,7 @@ android {
 dependencies {
     // ── Core AndroidX ──────────────────────────────────────────────
     implementation 'androidx.appcompat:appcompat:1.7.0'
-    implementation 'androidx.core:core-ktx:1.13.1'  // KTX extensions (dùng trong Gradle, không phải app code)
+    implementation 'androidx.core:core-ktx:1.13.1'
     implementation 'androidx.core:core:1.13.1'
     implementation 'androidx.activity:activity:1.9.0'
     implementation 'androidx.fragment:fragment:1.8.1'
@@ -153,7 +148,7 @@ dependencies {
     implementation 'androidx.viewpager2:viewpager2:1.1.0'
     implementation 'androidx.cardview:cardview:1.0.0'
 
-    // ── Firebase BOM — quản lý version tập trung ──────────────────
+    // ── Firebase BOM ──────────────────────────────────────────────
     implementation platform('com.google.firebase:firebase-bom:33.1.0')
     implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.firebase:firebase-firestore'
@@ -163,7 +158,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-crashlytics'
     implementation 'com.google.firebase:firebase-perf'
-    implementation 'com.google.firebase:firebase-config'  // Remote Config
+    implementation 'com.google.firebase:firebase-config'
 
     // Google Sign-In
     implementation 'com.google.android.gms:play-services-auth:21.2.0'
@@ -173,11 +168,11 @@ dependencies {
     implementation 'com.google.android.gms:play-services-location:21.3.0'
     implementation 'com.google.android.libraries.places:places:3.5.0'
 
-    // ── Glide — load & cache ảnh ──────────────────────────────────
+    // ── Glide ─────────────────────────────────────────────────────
     implementation 'com.github.bumptech.glide:glide:4.16.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.16.0'
 
-    // ── Retrofit + OkHttp — gọi API thanh toán ───────────────────
+    // ── Retrofit + OkHttp ────────────────────────────────────────
     implementation 'com.squareup.retrofit2:retrofit:2.11.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.11.0'
     implementation 'com.squareup.okhttp3:okhttp:4.12.0'
@@ -187,34 +182,34 @@ dependencies {
     // ── Lottie Animation ──────────────────────────────────────────
     implementation 'com.airbnb.android:lottie:6.4.0'
 
-    // ── Shimmer (skeleton loading) ────────────────────────────────
+    // ── Shimmer ───────────────────────────────────────────────────
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
-    // ── MPAndroidChart — biểu đồ admin dashboard ─────────────────
+    // ── MPAndroidChart ────────────────────────────────────────────
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 
-    // ── CircleImageView — avatar tròn ─────────────────────────────
+    // ── CircleImageView ───────────────────────────────────────────
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
-    // ── Dots Indicator cho ViewPager2 ─────────────────────────────
+    // ── Dots Indicator ────────────────────────────────────────────
     implementation 'com.tbuonomo:dotsindicator:5.0'
 
-    // ── Chip & FlexboxLayout — chọn topping ──────────────────────
+    // ── FlexboxLayout ─────────────────────────────────────────────
     implementation 'com.google.android.flexbox:flexbox:3.0.0'
 
-    // ── Stripe SDK (tuỳ chọn — thẻ quốc tế) ─────────────────────
+    // ── Stripe SDK ────────────────────────────────────────────────
     implementation 'com.stripe:stripe-android:20.46.0'
 
     // ── Image Picker ──────────────────────────────────────────────
     implementation 'com.github.dhaval2404:imagepicker:2.1'
 
-    // ── Paging 3 — phân trang Firestore ──────────────────────────
+    // ── Paging 3 ──────────────────────────────────────────────────
     implementation 'androidx.paging:paging-runtime:3.3.0'
 
-    // ── WorkManager — background sync ────────────────────────────
+    // ── WorkManager ───────────────────────────────────────────────
     implementation 'androidx.work:work-runtime:2.9.0'
 
-    // ── Preference (Settings screen) ─────────────────────────────
+    // ── Preference ────────────────────────────────────────────────
     implementation 'androidx.preference:preference:1.2.1'
 
     // ── Testing ───────────────────────────────────────────────────
