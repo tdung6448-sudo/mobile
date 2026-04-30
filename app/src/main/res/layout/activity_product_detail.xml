@@ -38,7 +38,7 @@
                 android:padding="@dimen/spacing_md">
 
                 <TextView
-                    android:id="@+id/tvName"
+                    android:id="@+id/tvProductName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/text_h2"
@@ -92,6 +92,14 @@
                     android:layout_marginTop="@dimen/spacing_md"
                     android:textColor="@color/text_secondary"
                     android:lineSpacingExtra="2dp" />
+                <TextView
+                    android:id="@+id/tvIngredients"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_xs"
+                    android:textColor="@color/text_secondary" />
+
+
 
                 <!-- Sizes -->
                 <TextView

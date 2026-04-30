@@ -63,4 +63,11 @@
             android:layout_marginStart="@dimen/spacing_xs"
             app:icon="@drawable/ic_send" />
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
 </LinearLayout>

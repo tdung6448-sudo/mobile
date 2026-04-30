@@ -56,6 +56,20 @@
                     android:inputType="phone" />
             </com.google.android.material.textfield.TextInputLayout>
 
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.PizzaApp.TextInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:hint="@string/hint_name">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName|textCapWords" />
+            </com.google.android.material.textfield.TextInputLayout>
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSendOtp"
                 style="@style/Widget.PizzaApp.Button.Primary"
@@ -67,6 +81,7 @@
 
         <!-- Step 2: OTP -->
         <LinearLayout
+            android:id="@+id/layoutOtp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -111,7 +126,7 @@
                 android:text="@string/btn_verify" />
 
             <TextView
-                android:id="@+id/tvResend"
+                android:id="@+id/tvResendOtp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

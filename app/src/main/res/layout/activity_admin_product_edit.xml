@@ -26,7 +26,7 @@
             android:padding="@dimen/spacing_md">
 
             <ImageView
-                android:id="@+id/ivProduct"
+                android:id="@+id/ivProductImage"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
@@ -47,6 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_md"
+                android:id="@+id/tilName"
                 android:hint="@string/hint_product_name">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etName"
@@ -103,6 +104,74 @@
                 android:layout_marginTop="@dimen/spacing_md"
                 android:text="@string/label_available"
                 android:checked="true" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.PizzaApp.TextInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:hint="Nguyên liệu">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etIngredients"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:minLines="2" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_md" android:text="Giá theo size" android:textStyle="bold" android:textColor="@color/text_primary" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="@dimen/spacing_xs">
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.PizzaApp.TextInput" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:hint="Nhỏ (S)">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etSizeS" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="numberDecimal" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.PizzaApp.TextInput" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="@dimen/spacing_xs" android:hint="Vừa (M)">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etSizeM" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="numberDecimal" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.PizzaApp.TextInput" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="@dimen/spacing_xs" android:hint="Lớn (L)">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etSizeL" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="numberDecimal" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_md" android:text="Phí đế bánh" android:textStyle="bold" android:textColor="@color/text_primary" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="@dimen/spacing_xs">
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.PizzaApp.TextInput" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:hint="Mỏng">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etCrustThin" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="numberDecimal" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.PizzaApp.TextInput" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="@dimen/spacing_xs" android:hint="Dày">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etCrustThick" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="numberDecimal" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.PizzaApp.TextInput" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="@dimen/spacing_xs" android:hint="Phô mai">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etCrustCheese" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="numberDecimal" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/switchFeatured"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:text="Nổi bật" />
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/switchBestSeller"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bán chạy" />
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/switchNew"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mới ra mắt" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/spacing_sm"
+                android:visibility="gone" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSave"
