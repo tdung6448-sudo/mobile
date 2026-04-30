@@ -44,9 +44,30 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/text_on_primary"
                 android:alpha="0.85" />
+        <TextView
+            android:id="@+id/tvPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/text_sm" />
+
+
         </LinearLayout>
 
         <!-- Items -->
+
+        <LinearLayout
+            android:id="@+id/layoutChat"
+            style="@style/ProfileMenuItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView android:layout_width="24dp" android:layout_height="24dp"
+                android:src="@drawable/ic_chat" android:contentDescription="@string/chat_with_store" />
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:layout_marginStart="@dimen/spacing_md"
+                android:text="@string/chat_with_store" android:textColor="@color/text_primary" />
+        </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -54,19 +75,19 @@
             android:padding="@dimen/spacing_md">
 
             <TextView
-                android:id="@+id/itemEditProfile"
+                android:id="@+id/layoutEditProfile"
                 style="@style/ProfileMenuItem"
                 android:text="@string/profile_edit"
                 android:drawableStart="@drawable/ic_edit" />
 
             <TextView
-                android:id="@+id/itemAddresses"
+                android:id="@+id/layoutAddresses"
                 style="@style/ProfileMenuItem"
                 android:text="@string/profile_addresses"
                 android:drawableStart="@drawable/ic_location" />
 
             <TextView
-                android:id="@+id/itemChangePassword"
+                android:id="@+id/layoutChangePassword"
                 style="@style/ProfileMenuItem"
                 android:text="@string/profile_change_password"
                 android:drawableStart="@drawable/ic_lock" />
@@ -96,14 +117,14 @@
                 android:drawableStart="@drawable/ic_info" />
 
             <TextView
-                android:id="@+id/itemLogout"
+                android:id="@+id/layoutLogout"
                 style="@style/ProfileMenuItem"
                 android:text="@string/profile_logout"
                 android:textColor="@color/red_primary"
                 android:drawableStart="@drawable/ic_logout" />
 
             <TextView
-                android:id="@+id/itemDeleteAccount"
+                android:id="@+id/layoutDeleteAccount"
                 style="@style/ProfileMenuItem"
                 android:text="@string/profile_delete_account"
                 android:textColor="@color/red_primary"

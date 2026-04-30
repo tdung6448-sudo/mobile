@@ -35,5 +35,15 @@
             android:layout_height="match_parent"
             android:padding="@dimen/spacing_sm"
             android:clipToPadding="false" />
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    
+    <TextView
+        android:id="@+id/tvEmpty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/no_orders"
+        android:textColor="@color/text_secondary"
+        android:visibility="gone" />
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </LinearLayout>
