@@ -5,6 +5,15 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:background="@color/background">
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/surface"
+        app:navigationIcon="@drawable/ic_back"
+        app:titleTextColor="@color/text_primary" />
+
+
 
     <LinearLayout
         android:layout_width="match_parent"

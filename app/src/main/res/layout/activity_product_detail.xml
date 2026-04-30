@@ -23,13 +23,16 @@
                 android:layout_height="280dp"
                 android:background="@color/surface_variant" />
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tabIndicator"
+            <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+                android:id="@+id/dotsIndicator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                app:tabBackground="@drawable/tab_indicator_dot"
-                app:tabIndicatorHeight="0dp" />
+                android:layout_marginVertical="@dimen/spacing_xs"
+                app:dotsColor="@color/red_primary"
+                app:dotsSize="8dp"
+                app:dotsSpacing="4dp"
+                app:selectedDotColor="@color/red_primary" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -44,6 +47,37 @@
                     android:textSize="@dimen/text_h2"
                     android:textStyle="bold"
                     android:textColor="@color/text_primary" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/spacing_xs">
+                    <TextView
+                        android:id="@+id/badgeNew"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mới"
+                        android:textSize="11sp"
+                        android:textColor="@color/text_on_primary"
+                        android:background="@drawable/bg_status_chip"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="2dp"
+                        android:visibility="gone" />
+                    <TextView
+                        android:id="@+id/badgeBestSeller"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bán chạy"
+                        android:textSize="11sp"
+                        android:textColor="@color/text_on_primary"
+                        android:background="@drawable/bg_status_chip"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="2dp"
+                        android:layout_marginStart="@dimen/spacing_xs"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -67,6 +101,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/spacing_xs"
                         android:textColor="@color/text_secondary" />
+
+                    <TextView
+                        android:id="@+id/tvRatingCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_xs"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/tvSold"
@@ -98,6 +140,16 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_xs"
                     android:textColor="@color/text_secondary" />
+                <TextView
+                    android:id="@+id/tvAllergens"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_xs"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+
+
 
 
 
@@ -119,6 +171,11 @@
                     android:overScrollMode="never" />
 
                 <!-- Crusts -->
+                <LinearLayout
+                    android:id="@+id/sectionCrust"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
                 <TextView
                     android:id="@+id/tvCrustsLabel"
                     android:layout_width="wrap_content"
@@ -135,7 +192,14 @@
                     android:layout_marginTop="@dimen/spacing_xs"
                     android:overScrollMode="never" />
 
+                </LinearLayout>
+
                 <!-- Toppings -->
+                <LinearLayout
+                    android:id="@+id/sectionToppings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
                 <TextView
                     android:id="@+id/tvToppingsLabel"
                     android:layout_width="wrap_content"
@@ -151,6 +215,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_xs"
                     android:overScrollMode="never" />
+
+                </LinearLayout>
 
                 <!-- Quantity -->
                 <LinearLayout
@@ -210,6 +276,16 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_xs"
                     android:overScrollMode="never" />
+                <TextView
+                    android:id="@+id/tvNoReviews"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_xs"
+                    android:text="@string/no_reviews"
+                    android:textColor="@color/text_secondary"
+                    android:visibility="gone" />
+
+
             </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

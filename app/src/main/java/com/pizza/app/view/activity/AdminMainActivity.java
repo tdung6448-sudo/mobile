@@ -18,7 +18,7 @@ import com.pizza.app.view.fragment.AdminVouchersFragment;
  */
 public class AdminMainActivity extends AppCompatActivity {
 
-    private ActivityAdminMainBinding binding;
+    ActivityAdminMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

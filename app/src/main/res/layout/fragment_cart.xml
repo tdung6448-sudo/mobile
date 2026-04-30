@@ -60,45 +60,56 @@
         </LinearLayout>
     </FrameLayout>
 
-    <com.google.android.material.card.MaterialCardView
+    <LinearLayout
+        android:id="@+id/layoutSummary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="8dp"
-        app:cardCornerRadius="0dp">
+        android:orientation="vertical">
 
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="@dimen/spacing_md">
+            app:cardElevation="8dp"
+            app:cardCornerRadius="0dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_md">
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/total_label"
-                    android:textColor="@color/text_secondary" />
+                <LinearLayout style="@style/SummaryRow">
+                    <TextView style="@style/SummaryLabel" android:text="@string/subtotal" />
+                    <TextView android:id="@+id/tvSubtotal" style="@style/SummaryValue" />
+                </LinearLayout>
+                <LinearLayout style="@style/SummaryRow">
+                    <TextView style="@style/SummaryLabel" android:text="@string/shipping_fee" />
+                    <TextView android:id="@+id/tvShipping" style="@style/SummaryValue" />
+                </LinearLayout>
+                <LinearLayout style="@style/SummaryRow">
+                    <TextView style="@style/SummaryLabel" android:text="@string/discount" />
+                    <TextView android:id="@+id/tvDiscount" style="@style/SummaryValue" />
+                </LinearLayout>
 
-                <TextView
-                    android:id="@+id/tvSubtotal"
-                    android:layout_width="wrap_content"
+                <View android:layout_width="match_parent" android:layout_height="1dp"
+                    android:layout_marginVertical="@dimen/spacing_xs"
+                    android:background="@color/divider" />
+
+                <LinearLayout style="@style/SummaryRow">
+                    <TextView style="@style/SummaryLabel" android:text="@string/total"
+                        android:textStyle="bold" android:textColor="@color/text_primary" />
+                    <TextView android:id="@+id/tvTotal" style="@style/SummaryValue"
+                        android:textColor="@color/red_primary" android:textStyle="bold" />
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCheckout"
+                    style="@style/Widget.PizzaApp.Button.Primary"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/text_primary"
-                    android:textStyle="bold" />
+                    android:layout_marginTop="@dimen/spacing_sm"
+                    android:text="@string/btn_checkout" />
             </LinearLayout>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnCheckout"
-                style="@style/Widget.PizzaApp.Button.Primary"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_sm"
-                android:text="@string/btn_checkout" />
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
 </LinearLayout>

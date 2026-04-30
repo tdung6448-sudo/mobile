@@ -91,6 +91,37 @@
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
 
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.PizzaApp.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xs"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/spacing_md"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/revenue_week"
+                        android:textColor="@color/text_secondary" />
+
+                    <TextView
+                        android:id="@+id/tvRevenueWeek"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+
         <!-- Counts -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -115,12 +146,21 @@
                         android:text="@string/orders_pending"
                         android:textColor="@color/text_secondary" />
                     <TextView
-                        android:id="@+id/tvPendingCount"
+                        android:id="@+id/tvOrderPending"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/text_h2"
                         android:textStyle="bold"
                         android:textColor="@color/red_primary" />
+                <LinearLayout style="@style/SummaryRow">
+                    <TextView style="@style/SummaryLabel" android:text="@string/status_preparing" />
+                    <TextView android:id="@+id/tvOrderPreparing" style="@style/SummaryValue" />
+                </LinearLayout>
+                <LinearLayout style="@style/SummaryRow">
+                    <TextView style="@style/SummaryLabel" android:text="@string/status_delivering" />
+                    <TextView android:id="@+id/tvOrderDelivering" style="@style/SummaryValue" />
+                </LinearLayout>
+
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -141,7 +181,7 @@
                         android:text="@string/orders_completed"
                         android:textColor="@color/text_secondary" />
                     <TextView
-                        android:id="@+id/tvCompletedCount"
+                        android:id="@+id/tvOrderCompleted"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/text_h2"

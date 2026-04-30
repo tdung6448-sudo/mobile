@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.chip.Chip
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/chipTopping"
-    style="@style/Widget.Material3.Chip.Filter"
-    android:layout_width="wrap_content"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginEnd="@dimen/spacing_xs"
-    android:layout_marginBottom="@dimen/spacing_xs"
-    android:checkable="true" />
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:padding="@dimen/spacing_xs">
+
+    <CheckBox
+        android:id="@+id/cbTopping"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tvToppingName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="@dimen/spacing_xs"
+        android:textColor="@color/text_primary" />
+
+    <TextView
+        android:id="@+id/tvToppingPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/red_primary"
+        android:textSize="12sp" />
+</LinearLayout>

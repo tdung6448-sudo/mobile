@@ -27,7 +27,7 @@
             android:textColor="@color/text_primary" />
 
         <TextView
-            android:id="@+id/tvCrustExtra"
+            android:id="@+id/tvExtraPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_xs"
