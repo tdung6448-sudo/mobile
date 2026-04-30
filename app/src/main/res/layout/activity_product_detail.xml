@@ -23,13 +23,16 @@
                 android:layout_height="280dp"
                 android:background="@color/surface_variant" />
 
-            <com.google.android.material.tabs.TabLayout
+            <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
                 android:id="@+id/dotsIndicator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                app:tabBackground="@drawable/tab_indicator_dot"
-                app:tabIndicatorHeight="0dp" />
+                android:layout_marginVertical="@dimen/spacing_xs"
+                app:dotsColor="@color/red_primary"
+                app:dotsSize="8dp"
+                app:dotsSpacing="4dp"
+                app:selectedDotColor="@color/red_primary" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -98,6 +101,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/spacing_xs"
                         android:textColor="@color/text_secondary" />
+
+                    <TextView
+                        android:id="@+id/tvRatingCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_xs"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/tvSold"
