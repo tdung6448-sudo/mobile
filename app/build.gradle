@@ -73,8 +73,6 @@ android {
 
     buildTypes {
         debug {
-            applicationIdSuffix ".debug"
-            versionNameSuffix "-debug"
             debuggable true
             minifyEnabled false
             shrinkResources false
@@ -126,7 +124,7 @@ dependencies {
     implementation 'androidx.activity:activity:1.9.0'
     implementation 'androidx.fragment:fragment:1.8.1'
     implementation 'androidx.multidex:multidex:2.0.1'
-    coreLibraryDesugaring 'com.android.tools.desugar_jdk_libs:desugar_jdk_libs:2.0.4'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.5'
 
     // ── Material Design 3 ──────────────────────────────────────────
     implementation 'com.google.android.material:material:1.12.0'

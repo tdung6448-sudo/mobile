@@ -229,6 +229,4 @@
     <string name="send">Gửi</string>
     <string name="type_message">Nhập tin nhắn…</string>
 
-    <!-- Google Sign-In Web Client ID — thay bằng ID thực từ google-services.json -->
-    <string name="default_web_client_id">YOUR_WEB_CLIENT_ID.apps.googleusercontent.com</string>
 </resources>
