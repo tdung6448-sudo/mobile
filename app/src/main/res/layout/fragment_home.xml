@@ -25,7 +25,7 @@
                 android:textSize="@dimen/text_lg"
                 android:textStyle="bold"
                 android:textColor="@color/text_primary"
-                android:fontFamily="@font/poppins_bold"
+                android:fontFamily="sans-serif-bold"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/ivNotification" />

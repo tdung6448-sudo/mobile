@@ -33,7 +33,7 @@
         android:textColor="@color/text_secondary" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnViewOrder"
+        android:id="@+id/btnTrackOrder"
         style="@style/Widget.PizzaApp.Button.Primary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
         android:text="@string/btn_view_order" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnHome"
+        android:id="@+id/btnGoHome"
         style="@style/Widget.Material3.Button.OutlinedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

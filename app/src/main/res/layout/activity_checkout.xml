@@ -59,7 +59,7 @@
                             android:textColor="@color/text_primary" />
 
                         <TextView
-                            android:id="@+id/tvChangeAddress"
+                            android:id="@+id/btnPickAddress"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/btn_change"
@@ -68,7 +68,20 @@
                     </LinearLayout>
 
                     <TextView
-                        android:id="@+id/tvAddress"
+                        android:id="@+id/tvReceiverName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary" />
+
+                    <TextView
+                        android:id="@+id/tvReceiverPhone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_secondary" />
+
+                    <TextView
+                        android:id="@+id/tvDeliveryAddress"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_xs"
@@ -147,6 +160,15 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/spacing_xs"
                         android:text="@string/btn_apply" />
+
+                <TextView
+                    android:id="@+id/tvVoucherStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_xs"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -280,4 +302,11 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/spacing_md"
         android:text="@string/btn_place_order" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
 </LinearLayout>

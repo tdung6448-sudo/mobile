@@ -29,7 +29,7 @@
                 android:textColor="@color/text_primary" />
 
             <TextView
-                android:id="@+id/tvDefault"
+                android:id="@+id/ivDefault"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/label_default"
@@ -42,7 +42,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tvAddress"
+            android:id="@+id/tvFullAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_xs"
