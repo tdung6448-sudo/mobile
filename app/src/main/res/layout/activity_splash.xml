@@ -26,7 +26,7 @@
         android:textSize="32sp"
         android:textStyle="bold"
         android:textColor="@color/text_on_primary"
-        android:fontFamily="@font/poppins_bold"
+        android:fontFamily="sans-serif-bold"
         app:layout_constraintTop_toBottomOf="@id/lottieAnimation"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

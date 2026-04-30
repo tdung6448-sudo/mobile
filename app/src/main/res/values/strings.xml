@@ -229,4 +229,6 @@
     <string name="send">Gửi</string>
     <string name="type_message">Nhập tin nhắn…</string>
 
+    <string name="default_web_client_id" translatable="false">YOUR_WEB_CLIENT_ID</string>
+
 </resources>
